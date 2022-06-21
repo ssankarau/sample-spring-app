@@ -2,7 +2,11 @@ pipeline {
     agent any
     stages {
         stage("Build") {
-            agent docker-agent
+            agent {
+                docker {
+                    image 'jenkins/agent'
+                }
+            }      
             steps {
                 echo "Build the Docker Image"
                 sh "docker build . -t ssankarmca37/my-spring-app:${BUILD_NUMBER}"
