@@ -4,9 +4,10 @@ pipeline {
         stage("Build") {
             steps {
                 echo "Build the Docker Image"
+                docker build . -t ssankarmca37/my-spring-app:${BUILD_NUMBER}
             }
         }
-        stage("upload Artifacts") {
+        stage("Upload Artifacts") {
             steps {
                 echo "Upload Docker Image to Docker Hub"
             }
