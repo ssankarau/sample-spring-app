@@ -2,6 +2,12 @@ pipeline {
     agent any
     stages {
         stage("Build") {
+            agent {
+                docker {
+                    label "docker"
+                    image "ssankarmca37/dockerindocker"
+                }
+            }            
             steps {
                 echo "Build the Docker Image"
                 sh "docker build . -t ssankarmca37/my-spring-app:${BUILD_NUMBER}"
