@@ -4,7 +4,7 @@ pipeline {
         stage("Build") {
             agent {
                 docker {
-                    label "docker"
+                    label "dockerindocker"
                     image "ssankarmca37/dockerindocker"
                 }
             }            
